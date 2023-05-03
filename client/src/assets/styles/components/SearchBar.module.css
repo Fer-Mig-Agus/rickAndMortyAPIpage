@@ -1,0 +1,20 @@
+.content{
+    width: 80%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    width: 70%;
+    height: 100%;
+    padding: 10px;
+}
+
+.button{
+    width: 30%;
+    height: 100%;
+    padding: 10px;
+}
