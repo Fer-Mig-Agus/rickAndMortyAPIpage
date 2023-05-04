@@ -35,9 +35,9 @@ export const getUser = (user) => {
     return({ type: GET_USER, payload: user})
 }
 
-export const getAllFavorites=(IdUser)=>{
+export const getAllFavorites=(idUser)=>{
     return async function (dispatch){
-        const favorites=await axios.get(`/favorite`,IdUser);
+        const favorites = await axios.get(`/favorite?idUser=${idUser}`);
         dispatch({type: GET_ALL_FAVORITES,payload:favorites.data});
     }
 }

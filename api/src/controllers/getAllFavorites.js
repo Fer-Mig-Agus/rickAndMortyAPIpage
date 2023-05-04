@@ -4,7 +4,7 @@ const User = require("../db/models/User");
 
 const getAllFavorites= async (req,res)=>{
 
-    const {idUser}=req.body;
+    const {idUser}=req.query;
     
     try {
 

@@ -33,7 +33,7 @@ const createFavorite = async (req, res) => {
 
         if (bandera) return res.status(400).json({ error:"El favorito ya esta agregado!"})
         
-        const favorite = await Favorites.create({ name, status, image, species ,gender, origin});
+        const favorite = await Favorites.create({ id,name, status, image, species ,gender, origin});
         favorite.addUser(idUser);
         res.status(200).send(favorite);
 

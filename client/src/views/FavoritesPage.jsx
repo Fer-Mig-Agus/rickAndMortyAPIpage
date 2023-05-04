@@ -11,7 +11,8 @@ const FavoritesPage = () => {
 	const user = useSelector((state) => state.user);
 	const allFavorites = useSelector((state) => state.favorites);
 
-  console.log(allFavorites);
+  	console.log(allFavorites);
+
 	useEffect(() => {
 		dispatch(getAllFavorites(user));
 	}, []);

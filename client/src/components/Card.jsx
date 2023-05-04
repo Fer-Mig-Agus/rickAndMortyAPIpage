@@ -9,7 +9,7 @@ import styles from '../assets/styles/components/Card.module.css';
 
 const Card = ({ id, name, species, gender, image, origin, status }) => {
 	const dispatch = useDispatch();
-	const user = useSelector((state) => state.user);
+	const idUser = useSelector((state) => state.user);
 
   const favorites=useSelector(state=> state.favorites);
 
@@ -17,9 +17,9 @@ const Card = ({ id, name, species, gender, image, origin, status }) => {
 
 	//const { pathname } = useLocation();
 
-	const addFavorite = (character, user) => {
+	const addFavorite = (character, idUser) => {
 		axios
-			.post(`/favorite?idUser=${user}`, character)
+			.post(`/favorite?idUser=${idUser}`, character)
 			.then((response) => {
 				console.log('Se agrego a favoritos');
 			})
@@ -28,9 +28,9 @@ const Card = ({ id, name, species, gender, image, origin, status }) => {
 			});
 	};
 
-	const removeFavorite = (id) => {
+	const removeFavorite = (id, idUser) => {
 		axios
-			.delete(`/favorite/${id}`)
+			.delete(`/favorite/${id}?idUser=${idUser}`)
 			.then((response) => {
 				console.log('Se elimino de favoritos');
 			})
@@ -42,7 +42,7 @@ const Card = ({ id, name, species, gender, image, origin, status }) => {
 	const handleFavorite = () => {
 		if (isFav) {
 			setIsFav(false);
-			removeFavorite(id);
+			removeFavorite(id, idUser);
 		} else {
 			setIsFav(true);
 			addFavorite(
@@ -55,7 +55,7 @@ const Card = ({ id, name, species, gender, image, origin, status }) => {
 					origin,
 					status,
 				},
-				user,
+				idUser,
 			);
 		}
 	};
