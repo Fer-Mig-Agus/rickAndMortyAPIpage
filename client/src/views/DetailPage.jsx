@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams,Link } from 'react-router-dom';
+import { useParams,Link, useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 
 import axios  from "axios";
 
 
-import {detailById} from "../redux/actions";
+import { detailById, cleanDetailById } from '../redux/actions';
 
 
 import styles from '../assets/styles/components/views/DetailPage.module.css';
@@ -17,6 +17,8 @@ const DetailPage = () => {
 	const {id} = useParams();
 	const dispatch=useDispatch();
 
+	const navigate=useNavigate();
+
 	const character=useSelector(state=>state.detail);
 
 	useEffect(() => {
@@ -24,25 +26,21 @@ const DetailPage = () => {
 	}, [character]);
 
 
-
-  
-
-//   axios.get(`/character/${id}`)
-//   .then((response)=>{
-//       setCharacter(response.data);
-//   })
-// 	.catch((error)=>{
-//     console.log(error);
-//   })
-
+	const handleClickReturn=(event)=>{
+		event.preventDefault();
+		dispatch(cleanDetailById());
+		navigate("/home");
+	}
 
 	return (
 		<div className={styles.content}>
 			<div className={styles.contentTitle}>
 				<h1 className={styles.titulo}>Bievenido a los detalles</h1>
-				<Link to="/home">
-					<h3 className={styles.link}>Volver</h3>
-				</Link>
+				<button onClick={handleClickReturn}>
+					Volver
+				</button>
+					
+				
 			</div>
 
 			{character.name ? (

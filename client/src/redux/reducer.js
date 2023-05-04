@@ -6,6 +6,7 @@ import {
     GET_CHARACTER_BY_NAME,
     GET_USER, GET_ALL_FAVORITES,
     DETAIL_ID,
+    CLEAN_DETAIL_BY_ID,
     FILTER_ORDER_BY_NAME,
     FILTER_ORDER_BY_ID,
     FILTER_BY_LIVE,
@@ -17,7 +18,7 @@ const initialState = {
     copyCharacters: [],
     favorites: [],
     detail:{},
-    user: 0,
+    user: 2,
 }
 
 
@@ -57,6 +58,12 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 detail: state.characters.find((char)=> char.id == action.payload)
             }
+        case CLEAN_DETAIL_BY_ID:
+            return{
+                ...state,
+                detail:{}
+            }
+
         case FILTER_ORDER_BY_NAME:
 
 

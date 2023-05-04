@@ -9,6 +9,7 @@ export const GENERATE_COPY = "GENERATE_COPY";
 export const GET_USER = "GET_USER";
 export const GET_ALL_FAVORITES ="GET_ALL_FAVORITES";
 export const DETAIL_ID ="DETAIL_ID";
+export const CLEAN_DETAIL_BY_ID ="CLEAN_DETAIL_BY_ID";
 //Variables de Filtros
 export const GET_CHARACTER_BY_NAME = "GET_CHARACTER_BY_NAME";
 export const FILTER_ORDER_BY_NAME ="FILTER_ORDER_BY_NAME";
@@ -45,11 +46,15 @@ export const detailById=(id)=>{
     return {type: DETAIL_ID, payload:id};
 }
 
+export const cleanDetailById=()=>{
+    return {type: CLEAN_DETAIL_BY_ID}
+}
+
 //Todos los filtros
 
 export const getCharacterByName = (name) => {
     return async function (dispatch) {
-        const character = await axios.get(`/characters/names&name=${name}`);
+        const character = await axios.get(`/characters/names?name=${name}`);
         dispatch({ type: GET_CHARACTER_BY_NAME, payload: character.data });
     }
 }
