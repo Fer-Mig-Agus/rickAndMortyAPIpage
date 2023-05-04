@@ -92,7 +92,7 @@ const Pagination = () => {
 	}
 
 	let pageDecrementBtn = null;
-	if (maxPageNumberLimit >= 1) {
+	if (minPageNumberLimit >= 1) {
 		pageDecrementBtn = (
 			<li className={styles.puntitos} onClick={handlePrevBtn}>
 				&hellip;

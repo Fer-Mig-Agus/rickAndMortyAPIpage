@@ -28,7 +28,7 @@ const AllCharacters = async (req, res) => {
             );
 
             url=response.data.info.next;
-            if(allCharacters.length >= 100 || !url){
+            if(allCharacters.length >= 50 || !url){
                 break;
             }
         }

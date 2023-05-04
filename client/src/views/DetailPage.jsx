@@ -1,9 +1,12 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams,Link } from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
 
 import axios  from "axios";
 
+
+import {detailById} from "../redux/actions";
 
 
 import styles from '../assets/styles/components/views/DetailPage.module.css';
@@ -12,16 +15,25 @@ import styles from '../assets/styles/components/views/DetailPage.module.css';
 const DetailPage = () => {
 
 	const {id} = useParams();
+	const dispatch=useDispatch();
 
-  const [character,setCharacter]=useState({});
+	const character=useSelector(state=>state.detail);
 
-  axios.get(`/character/${id}`)
-  .then((response)=>{
-      setCharacter(response.data);
-  })
-	.catch((error)=>{
-    console.log(error);
-  })
+	useEffect(() => {
+		dispatch(detailById(id));
+	}, [character]);
+
+
+
+  
+
+//   axios.get(`/character/${id}`)
+//   .then((response)=>{
+//       setCharacter(response.data);
+//   })
+// 	.catch((error)=>{
+//     console.log(error);
+//   })
 
 
 	return (

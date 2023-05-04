@@ -8,6 +8,7 @@ export const GET_ALL_CHARACTERS = "GET_ALL_CHARACTERS";
 export const GENERATE_COPY = "GENERATE_COPY";
 export const GET_USER = "GET_USER";
 export const GET_ALL_FAVORITES ="GET_ALL_FAVORITES";
+export const DETAIL_ID ="DETAIL_ID";
 //Variables de Filtros
 export const GET_CHARACTER_BY_NAME = "GET_CHARACTER_BY_NAME";
 export const FILTER_ORDER_BY_NAME ="FILTER_ORDER_BY_NAME";
@@ -38,6 +39,10 @@ export const getAllFavorites=(IdUser)=>{
         const favorites=await axios.get(`/favorite`,IdUser);
         dispatch({type: GET_ALL_FAVORITES,payload:favorites.data});
     }
+}
+
+export const detailById=(id)=>{
+    return {type: DETAIL_ID, payload:id};
 }
 
 //Todos los filtros
