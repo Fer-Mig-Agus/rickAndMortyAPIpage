@@ -87,7 +87,7 @@ const Form = () => {
 					/>
 					<span>{errors.password}</span>
 				</div>
-				<button>Ingresar</button>
+				<button>Log in</button>
 			</form>
 		</div>
 	);

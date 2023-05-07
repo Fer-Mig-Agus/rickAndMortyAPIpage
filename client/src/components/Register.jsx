@@ -73,10 +73,10 @@ const Register = () => {
 					/>
 					<span>{errors.password}</span>
 				</div>
-				<button>Registrar</button>
+				<button>Check in</button>
 			</form>
 
-			<Link to="/">Volver</Link>
+			<Link to="/">Return</Link>
 		</div>
 	);
 };

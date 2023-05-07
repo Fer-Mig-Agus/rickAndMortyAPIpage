@@ -1,19 +1,32 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Form from '../components/Form';
 import styles from '../assets/styles/components/views/LeandingPage.module.css';
+import image from '../assets/img/Rick-and-Morty.png';
 const LeandingPage = () => {
-  return (
-		<div>
-			<h1>Bienvenido a rick and morty page</h1>
+	return (
+		<div className={styles.content}>
+			<h1 className={styles.titleMain}>WELCOME TO</h1>
+			<div className={styles.contentImage}>
+				<a
+					href="https://portfolio-miguel-fernandez.netlify.app/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img className={styles.image}
+						src={image}
+						alt="rickAndMortyLogo"
+						title="Visita https://portfolio-miguel-fernandez.netlify.app/"
+					/>
+				</a>
+			</div>
 
 			<Form />
 
-			<Link to="/register">No estas logueado?</Link>
-
+			<Link to="/register">Still not registered?</Link>
 		</div>
 	);
-}
+};
 
-export default LeandingPage
+export default LeandingPage;
