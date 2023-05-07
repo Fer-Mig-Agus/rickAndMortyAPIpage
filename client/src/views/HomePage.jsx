@@ -7,15 +7,21 @@ import SearchBar from "../components/SearchBar";
 import Pagination from "../components/Pagination";
 
 import styles from '../assets/styles/components/views/HomePage.module.css';
-import { getAllCharacters, generateCopy } from '../redux/actions';
+import {
+	getAllCharacters,
+	generateCopy,
+	getAllFavorites,
+} from '../redux/actions';
 
 const HomePage = () => {
 
   const stateGlobal = useSelector((state) => state.characters);
+  const user =useSelector((state)=> state.user);
   const dispatch=useDispatch();
 
   useEffect(() => {
     dispatch(getAllCharacters());
+    dispatch(getAllFavorites(user));
   }, []);
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllFavorites } from '../redux/actions';
@@ -11,7 +11,7 @@ const FavoritesPage = () => {
 	const user = useSelector((state) => state.user);
 	const allFavorites = useSelector((state) => state.favorites);
 
-  	console.log(allFavorites);
+  	console.log("Este es el user desde favorite",user);
 
 	useEffect(() => {
 		dispatch(getAllFavorites(user));

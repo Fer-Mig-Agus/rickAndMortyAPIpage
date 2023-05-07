@@ -8,6 +8,7 @@ import HomePage from "./views/HomePage";
 import LeandingPage from "./views/LeandingPage";
 import AboutPage from "./views/AboutPage";
 import ErrorPage from './views/ErrorPage';
+import Register from "./components/Register";
 
 import Nav from './components/Nav';
 
@@ -26,6 +27,7 @@ function App() {
       case "/about": return true
       case "/favorite":return true
       case "/detail/:id":return false
+      case "/register": return false
       default: return false
     }
   }
@@ -45,6 +47,7 @@ function App() {
         <Route path="/favorite" element={< FavoritePage />} />
         <Route path="/about" element={< AboutPage />} />
         <Route path="/detail/:id" element={< DetailPage />} />
+        <Route path='/register' element={<Register />}/>
         <Route path='*' element={<ErrorPage />}/>
 
       </Routes>

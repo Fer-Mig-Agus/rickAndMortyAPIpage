@@ -1,7 +1,9 @@
 const User = require("../db/models/User");
 
 const getUser = async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password } = req.query;
+    console.log(email);
+    console.log(password);
     try {
         const user = await User.findOne({ where: { email: email } });
         if (!user) return res.status(400).json({ error: "No existe el Usuario" });

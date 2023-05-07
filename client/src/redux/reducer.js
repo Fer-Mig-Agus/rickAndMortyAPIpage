@@ -4,8 +4,9 @@ import {
     GET_ALL_CHARACTERS,
     GENERATE_COPY,
     GET_CHARACTER_BY_NAME,
-    GET_USER, GET_ALL_FAVORITES,
+    SET_USER, GET_ALL_FAVORITES,
     DETAIL_ID,
+    SET_ACCESS,
     CLEAN_DETAIL_BY_ID,
     FILTER_ORDER_BY_NAME,
     FILTER_ORDER_BY_ID,
@@ -18,7 +19,8 @@ const initialState = {
     copyCharacters: [],
     favorites: [],
     detail:{},
-    user: 2,
+    access:false,
+    user: "",
 }
 
 
@@ -35,6 +37,11 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 copyCharacters: state.characters
             }
+        case SET_ACCESS:
+            return{
+                ...state,
+                access:action.payload
+            }
 
         case GET_CHARACTER_BY_NAME:
             return {
@@ -42,10 +49,10 @@ export default function reducer(state = initialState, action) {
                 copyCharacters: action.payload
             }
 
-        case GET_USER:
+        case SET_USER:
             return {
                 ...state,
-                user: action.payload.id
+                user: action.payload
             }
 
         case GET_ALL_FAVORITES:

@@ -6,10 +6,11 @@ import axios from "axios";
 
 export const GET_ALL_CHARACTERS = "GET_ALL_CHARACTERS";
 export const GENERATE_COPY = "GENERATE_COPY";
-export const GET_USER = "GET_USER";
+export const SET_USER = "SET_USER";
 export const GET_ALL_FAVORITES ="GET_ALL_FAVORITES";
 export const DETAIL_ID ="DETAIL_ID";
 export const CLEAN_DETAIL_BY_ID ="CLEAN_DETAIL_BY_ID";
+export const SET_ACCESS ="SET_ACCESS";
 //Variables de Filtros
 export const GET_CHARACTER_BY_NAME = "GET_CHARACTER_BY_NAME";
 export const FILTER_ORDER_BY_NAME ="FILTER_ORDER_BY_NAME";
@@ -31,8 +32,12 @@ export const generateCopy = () => {
 }
 
 
-export const getUser = (user) => {
-    return({ type: GET_USER, payload: user})
+export const setUser = (user) => {
+    return({ type: SET_USER, payload: user})
+}
+
+export const setAccess=(acceso)=>{
+    return {type: SET_ACCESS, payload:acceso}
 }
 
 export const getAllFavorites=(idUser)=>{

@@ -1,7 +1,7 @@
 const User=require("../db/models/User");
 
 const createUser= async (req,res)=>{
-    const {email,password}=req.body;
+    const {email,password}=req.query;
     try {
         if(!email || email === "" || !password || password === "") return res.status(400).json({error:"Faltan datos"});
 
