@@ -24,7 +24,7 @@ const LeandingPage = () => {
 
 			<Form />
 
-			<Link to="/register">Still not registered?</Link>
+			<Link to="/register" className={styles.linkRegister}>Still not registered?</Link>
 		</div>
 	);
 };

@@ -7,7 +7,15 @@ import axios from 'axios';
 import { setAccess, setUser } from '../redux/actions';
 import { validate, validateFields } from '../utils/Verification';
 
+import imageEyeView from "../assets/img/eyeView.png";
+import imageEyeHide from "../assets/img/eyeHide.png";
+
+import styles from "../assets/styles/components/Form.module.css";
+
 const Form = () => {
+
+
+
 	const access = useSelector((state) => state.access);
 
 	const dispatch = useDispatch();
@@ -24,6 +32,19 @@ const Form = () => {
 		password: '',
 	});
 
+	//Estado para ver la contraseña
+	const [pass, setPass] = useState(false);
+
+	const statusPassword = (event) => {
+		event.preventDefault();
+		if (pass) {
+			setPass(false);
+		} else {
+			setPass(true);
+		}
+	};
+
+
 	useEffect(() => {
 		!access && navigate('/');
 	}, [access]);
@@ -38,6 +59,7 @@ const Form = () => {
 				dispatch(setUser(id));
 				dispatch(setAccess(true));
 				navigate('/home');
+				setForm({ email: '', password: '' });
 				console.log('bienvenido');
 			})
 			.catch((error) => {
@@ -64,10 +86,12 @@ const Form = () => {
 		login(form);
 	};
 
+
+
 	return (
-		<div>
+		<div className={styles.content}>
 			<form action="" onSubmit={handleSubmitForm}>
-				<div>
+				<div className={styles.ContentEmail}>
 					<label htmlFor="email">Email:</label>
 					<input
 						type="email"
@@ -77,17 +101,26 @@ const Form = () => {
 					/>
 					<span>{errors.email}</span>
 				</div>
-				<div>
-					<label htmlFor="password">Password:</label>
-					<input
-						type="password"
-						name="password"
-						value={form.password}
-						onChange={handleChangeInput}
-					/>
+				<div className={styles.contentPassword}>
+					<div className={styles.contentDivPassword}>
+						<label htmlFor="password">Password:</label>
+						<input
+							type={pass ? 'text' : 'password'}
+							name="password"
+							value={form.password}
+							onChange={handleChangeInput}
+						/>
+					</div>
+					<div className={styles.contentImageEye} onClick={statusPassword}>
+						<img
+							className={styles.imageEye}
+							src={pass ? imageEyeView : imageEyeHide}
+							alt=""
+						/>
+					</div>
 					<span>{errors.password}</span>
 				</div>
-				<button>Log in</button>
+				<button className={styles.buttonLogIn}>Log in</button>
 			</form>
 		</div>
 	);
