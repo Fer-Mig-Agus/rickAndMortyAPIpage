@@ -13,7 +13,7 @@ const Cards = ({allCharacters}) => {
 					},
 				)
 			) : (
-				<h2>No hay Personajes...</h2>
+				<h2 className={styles.titleVacio}>No hay Personajes...</h2>
 			)}
 		</div>
 	);

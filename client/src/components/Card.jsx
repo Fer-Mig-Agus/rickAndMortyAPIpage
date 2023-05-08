@@ -1,21 +1,23 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import {  useSelector } from 'react-redux';
+import { Link,useLocation } from 'react-router-dom';
 
 import axios from 'axios';
 
 import styles from '../assets/styles/components/Card.module.css';
 
 const Card = ({ id, name, species, gender, image, origin, status }) => {
-	const dispatch = useDispatch();
+
+	
+
 	const idUser = useSelector((state) => state.user);
 
-  const favorites=useSelector(state=> state.favorites);
+	const favorites = useSelector((state) => state.favorites);
 
 	const [isFav, setIsFav] = useState(false);
 
-	//const { pathname } = useLocation();
+	const { pathname } = useLocation();
 
 	const addFavorite = (character, idUser) => {
 		axios
@@ -60,14 +62,13 @@ const Card = ({ id, name, species, gender, image, origin, status }) => {
 		}
 	};
 
-     useEffect(() => {
-				favorites.forEach((fav) => {
-					if (fav.id === id) {
-						setIsFav(true);
-					}
-				});
-			}, []);
-
+	useEffect(() => {
+		favorites.forEach((fav) => {
+			if (fav.id === id) {
+				setIsFav(true);
+			}
+		});
+	}, []);
 
 	return (
 		<div className={styles.content}>
@@ -82,10 +83,24 @@ const Card = ({ id, name, species, gender, image, origin, status }) => {
 			)}
 
 			<div className={styles.contentImage}>
-				<img src={image} alt={name} title="Haz click en el nombre" />
+				<img
+					src={image}
+					className={styles.image}
+					alt={name}
+					title="Haz click en el nombre"
+				/>
 			</div>
-			<Link to={`/detail/${id}`}>{name}</Link>
-			<h3>{id}</h3>
+			<div className={styles.contentText}>
+				{pathname !== '/favorite' ? (
+					<Link to={`/detail/${id}`} className={styles.name}>
+						{name}
+					</Link>
+				) : (
+					<h3 className={styles.name}>{name}</h3>
+				)}
+
+				<h3 className={styles.id}>{id}</h3>
+			</div>
 		</div>
 	);
 };

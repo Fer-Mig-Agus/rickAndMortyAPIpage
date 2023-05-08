@@ -31,15 +31,18 @@ const HomePage = () => {
 
 
   return (
-    <div className={styles.content}>
-      <div className={styles.contentFilters}>
-        <AllFilters/>
-        <SearchBar/>
-      </div>
-      <h1>All Characters</h1>
-      <Pagination/>
-    </div>
-  )
+		<div className={styles.content}>
+			<div className={styles.contentFilters}>
+				<SearchBar />
+				<AllFilters />
+			</div>
+
+			<div className={styles.contentPagination}>
+				<h1 className={styles.titleMain}>All Characters</h1>
+				<Pagination />
+			</div>
+		</div>
+	);
 }
 
 export default HomePage

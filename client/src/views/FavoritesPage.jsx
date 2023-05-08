@@ -22,8 +22,8 @@ const FavoritesPage = () => {
 	}, [allFavorites]);
 
 	return (
-		<div>
-			<h1>Estos son los favoritos</h1>
+		<div className={styles.content}>
+			<h1 className={styles.titleMain}>YOUR FAVORITES</h1>
 			<Cards allCharacters={allFavorites} />
 		</div>
 	);

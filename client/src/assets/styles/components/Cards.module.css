@@ -1,9 +1,18 @@
-.content{
-    display: flex;
-    width: 80%;
-    height: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+.content {
+	display: flex;
+	width: 80%;
+	height: 100%;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.titleVacio {
+	text-align: center;
+	font-size: 50px;
+	font-family: rickAndMorty;
+	color: rgb(1, 223, 1);
+	-webkit-text-stroke: 1px rgb(0, 255, 255);
+	margin-top: 2%;
 }

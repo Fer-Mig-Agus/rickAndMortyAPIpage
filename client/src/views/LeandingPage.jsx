@@ -9,22 +9,19 @@ const LeandingPage = () => {
 		<div className={styles.content}>
 			<h1 className={styles.titleMain}>WELCOME TO</h1>
 			<div className={styles.contentImage}>
-				<a
-					href="https://portfolio-miguel-fernandez.netlify.app/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<img className={styles.image}
-						src={image}
-						alt="rickAndMortyLogo"
-						title="Visita https://portfolio-miguel-fernandez.netlify.app/"
-					/>
-				</a>
+				<img
+					className={styles.image}
+					src={image}
+					alt="rickAndMortyLogo"
+					title="Visita https://portfolio-miguel-fernandez.netlify.app/"
+				/>
 			</div>
 
 			<Form />
 
-			<Link to="/register" className={styles.linkRegister}>Still not registered?</Link>
+			<Link to="/register" className={styles.linkRegister}>
+				Still not registered?
+			</Link>
 		</div>
 	);
 };

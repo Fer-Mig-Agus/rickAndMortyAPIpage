@@ -83,8 +83,11 @@ const AllFilters = () => {
 
 	return (
 		<div className={styles.content}>
-			<div>
-				<h3>Order by Name</h3>
+			<button className={styles.button} onClick={restorePage}>
+				Restore
+			</button>
+			<div className={styles.contentFilterBox}>
+				<h3 className={styles.filterTitle}>Order by Name</h3>
 				<select name="" id="" onChange={handleOrderName}>
 					<option value="default">Default</option>
 					<option value="ascendente">upward</option>
@@ -92,8 +95,8 @@ const AllFilters = () => {
 				</select>
 			</div>
 
-			<div>
-				<h3>Order by Id</h3>
+			<div className={styles.contentFilterBox}>
+				<h3 className={styles.filterTitle}>Order by Id</h3>
 				<select name="" id="" onChange={handleOrderId}>
 					<option value="default">Default</option>
 					<option value="ascendente">upward</option>
@@ -101,8 +104,8 @@ const AllFilters = () => {
 				</select>
 			</div>
 
-			<div>
-				<h3>Filter by Live</h3>
+			<div className={styles.contentFilterBox}>
+				<h3 className={styles.filterTitle}>Filter by Live</h3>
 				<select name="" id="" onChange={handleFilterByLive}>
 					<option value="default">Default</option>
 					<option value="alive">Alive</option>
@@ -111,8 +114,8 @@ const AllFilters = () => {
 				</select>
 			</div>
 
-			<div>
-				<h3>Filter by Gender</h3>
+			<div className={styles.contentFilterBox}>
+				<h3 className={styles.filterTitle}>Filter by Gender</h3>
 				<select name="" id="" onChange={handleFilterByGender}>
 					<option value="default">Default</option>
 					<option value="hombre">Male</option>
@@ -120,10 +123,6 @@ const AllFilters = () => {
 					<option value="unknown">Unknown</option>
 				</select>
 			</div>
-
-			<button onClick={restorePage}>
-				Restore
-			</button>
 		</div>
 	);
 };

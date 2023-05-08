@@ -14,7 +14,7 @@ const Pagination = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [itemsPerPage, setItemsPerPage] = useState(6);
 	const [pageNumberLimit, setPageNumberLimit] = useState(6);
-	const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(10);
+	const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(7);
 	const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
 	//funcion para controlar la paginacion,
