@@ -7,14 +7,26 @@ import axios from 'axios';
 import { setAccess, setUser } from '../redux/actions';
 import { validate, validateFields } from '../utils/Verification';
 
-import imageEyeView from "../assets/img/eyeView.png";
-import imageEyeHide from "../assets/img/eyeHide.png";
+import imageEyeView from '../assets/img/eyeView.png';
+import imageEyeHide from '../assets/img/eyeHide.png';
+import RecurringError from '../components/RecurringError';
 
-import styles from "../assets/styles/components/Form.module.css";
+import styles from '../assets/styles/components/Form.module.css';
 
 const Form = () => {
 
+	const handleMessegeViews = (type, error) => {
+		setAlerta({ type: type, error: error });
+		setTimeout(() => {
+			setAlerta({type:"",error:""});
+		}, 2000);
+		return;
+	};
 
+	const [alerta, setAlerta] = useState({
+		type:"",
+		error:""
+	});
 
 	const access = useSelector((state) => state.access);
 
@@ -44,7 +56,6 @@ const Form = () => {
 		}
 	};
 
-
 	useEffect(() => {
 		!access && navigate('/');
 	}, [access]);
@@ -60,12 +71,10 @@ const Form = () => {
 				dispatch(setAccess(true));
 				navigate('/home');
 				setForm({ email: '', password: '' });
-				console.log('bienvenido');
 			})
 			.catch((error) => {
 				dispatch(setAccess(false));
-				console.log('No estas logueado');
-				console.log(error);
+				handleMessegeViews(true,"Invalid email or password");
 			});
 	};
 
@@ -80,16 +89,18 @@ const Form = () => {
 	const handleSubmitForm = (event) => {
 		event.preventDefault();
 		if (!validateFields(form)) {
-			console.log('Completa los campos correctamente');
+			handleMessegeViews(true, 'Fill in the fields correctly');
+			
 			return;
 		}
 		login(form);
 	};
 
-
-
 	return (
 		<div className={styles.content}>
+
+			{alerta.error && <RecurringError mensaje={alerta.error} tipo={alerta.type} />}
+			
 			<form action="" onSubmit={handleSubmitForm}>
 				<div className={styles.ContentEmail}>
 					<label htmlFor="email">Email:</label>

@@ -4,11 +4,25 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
-
+import RecurringError from "./RecurringError";
 import { validate, validateFields } from '../utils/Verification';
 import styles from "../assets/styles/components/Register.module.css";
 
 const Register = () => {
+
+	const handleMessegeViews = (type, error) => {
+		setAlerta({ type: type, error: error });
+		setTimeout(() => {
+			setAlerta({ type: '', error: '' });
+		}, 2000);
+		return;
+	};
+
+	const [alerta, setAlerta] = useState({
+		type: '',
+		error: '',
+	});
+
 
 	const navigate = useNavigate();
 
@@ -28,10 +42,12 @@ const Register = () => {
 		await axios
 			.post(`/user?email=${form.email}&password=${form.password}`)
 			.then((response) => {
-				console.log('registrado');
-				window.location.reload();
+				handleMessegeViews(false,"Registrado con Éxito");
+				setForm({ email: '', password: '' });
+				
 			})
 			.catch((error) => {
+				handleMessegeViews(true, 'El registro a fallado');
 				console.log(error);
 			});
 	};
@@ -47,7 +63,8 @@ const Register = () => {
 	const handleSubmitForm = (event) => {
 		event.preventDefault();
 		if (!validateFields(form)) {
-			console.log('Completa los campos correctamente');
+			handleMessegeViews(true, 'Completa los campos correctamente');
+			
 			return;
 		}
 		registrarUser(form);
@@ -60,6 +77,9 @@ const Register = () => {
 
 	return (
 		<div className={styles.content}>
+			{alerta.error && (
+				<RecurringError mensaje={alerta.error} tipo={alerta.type} />
+			)}
 			<h1 className={styles.titleMain}>REGISTRATE</h1>
 
 			<div className={styles.contentForm}>
@@ -67,7 +87,7 @@ const Register = () => {
 					<div className={styles.ContentFields}>
 						<label htmlFor="email">Email:</label>
 						<input
-						placeholder='Email...'
+							placeholder="Email..."
 							type="email"
 							name="email"
 							value={form.email}
@@ -78,8 +98,8 @@ const Register = () => {
 					<div className={styles.ContentFields}>
 						<label htmlFor="password">Password:</label>
 						<input
-						placeholder='Password...'
-						className={styles.inputPass}
+							placeholder="Password..."
+							className={styles.inputPass}
 							type="text"
 							name="password"
 							value={form.password}
