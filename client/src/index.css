@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('./assets/img/backgroundEstrellado.png');
+  background: url('./assets/img/backgroundEstrellado.webp');
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: repeat;

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../assets/styles/components/views/ErrorPage.module.css';
-import image from "../assets/img/not found.png"
+import image from "../assets/img/not found.webp"
 const ErrorPage = () => {
   return (
     <div className={styles.content}>

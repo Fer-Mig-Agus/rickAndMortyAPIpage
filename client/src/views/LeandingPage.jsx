@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Form from '../components/Form';
 import styles from '../assets/styles/components/views/LeandingPage.module.css';
-import image from '../assets/img/Rick-and-Morty.png';
+import image from '../assets/img/Rick-and-Morty.webp';
 const LeandingPage = () => {
 	return (
 		<div className={styles.content}>

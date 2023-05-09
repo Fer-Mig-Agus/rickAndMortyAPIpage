@@ -7,8 +7,8 @@ import axios from 'axios';
 import { setAccess, setUser } from '../redux/actions';
 import { validate, validateFields } from '../utils/Verification';
 
-import imageEyeView from '../assets/img/eyeView.png';
-import imageEyeHide from '../assets/img/eyeHide.png';
+import imageEyeView from '../assets/img/eyeView.webp';
+import imageEyeHide from '../assets/img/eyeHide.webp';
 import RecurringError from '../components/RecurringError';
 
 import styles from '../assets/styles/components/Form.module.css';
