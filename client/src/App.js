@@ -14,7 +14,10 @@ import Nav from './components/Nav';
 
 //important: Esta configuracion de axios es para el deploy
 import axios from "axios";
-axios.defaults.baseURL="http://localhost:3001";
+
+const desarrolloApp ="http://localhost:3001";
+const produccionApp="";
+axios.defaults.baseURL=desarrolloApp;
 
 function App() {
 
