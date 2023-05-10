@@ -42,12 +42,12 @@ const Register = () => {
 		await axios
 			.post(`/user?email=${form.email}&password=${form.password}`)
 			.then((response) => {
-				handleMessegeViews(false,"Registrado con Éxito");
+				handleMessegeViews(false, 'Successfully registered');
 				setForm({ email: '', password: '' });
 				
 			})
 			.catch((error) => {
-				handleMessegeViews(true, 'El registro a fallado');
+				handleMessegeViews(true, 'Registration failed');
 				console.log(error);
 			});
 	};
@@ -63,7 +63,7 @@ const Register = () => {
 	const handleSubmitForm = (event) => {
 		event.preventDefault();
 		if (!validateFields(form)) {
-			handleMessegeViews(true, 'Completa los campos correctamente');
+			handleMessegeViews(true, 'Complete the fields correctly');
 			
 			return;
 		}

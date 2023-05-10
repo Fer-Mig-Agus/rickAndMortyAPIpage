@@ -1,14 +1,19 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from '../assets/styles/components/AllFilters.module.css';
 import {
 	filterOrderByName,
 	filterOrderById,
 	filterByLive,
 	filterByGender,
+	generateCopy,
 } from '../redux/actions';
 const AllFilters = () => {
+
+
 	const dispatch = useDispatch();
+	
+
 
 	const handleOrderName = (event) => {
 		let order = '';
@@ -16,8 +21,8 @@ const AllFilters = () => {
 			case 'ascendente':
 				order = 'ascendente';
 				break;
-			case 'ascendente':
-				order = 'ascendente';
+			case 'descendente':
+				order = 'descendente';
 				break;
 			default:
 				order = 'default';
@@ -31,8 +36,8 @@ const AllFilters = () => {
 			case 'ascendente':
 				order = 'ascendente';
 				break;
-			case 'ascendente':
-				order = 'ascendente';
+			case 'descendente':
+				order = 'descendente';
 				break;
 			default:
 				order = 'default';
@@ -78,7 +83,7 @@ const AllFilters = () => {
 
 	const restorePage=(event)=>{
 		event.preventDefault();
-		window.location.reload();
+		dispatch(generateCopy());
 	}
 
 	return (

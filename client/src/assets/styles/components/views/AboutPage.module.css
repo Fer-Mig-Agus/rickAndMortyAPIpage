@@ -1,0 +1,92 @@
+.content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.titleMain {
+	font-size: 50px;
+	color: black;
+	text-align: center;
+	font-family: RobotoLightItalica;
+	font-weight: 900;
+}
+
+.contentAll {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	width: 100%;
+	height: 100%;
+	margin-top: -5%;
+}
+
+.contentLogo {
+	width: 48%;
+	height: auto;
+	overflow: hidden;
+}
+.contentLogo img {
+	width: 100%;
+	height: 100%;
+}
+
+.contentText {
+	width: 48%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.contentDescription{
+    width: 70%;
+    height: auto;
+    overflow: hidden;
+}
+
+.description {
+    text-align: center;
+	font-size: 25px;
+	font-family: RobotoLightItalica;
+    font-weight: 700;
+	color: black;
+}
+
+.contentLogosInfo {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 60px;
+}
+
+.contentLinkedin {
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+}
+
+.contentLinkedin img {
+	width: 100%;
+	height: 100%;
+}
+
+.contentGithub {
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+}
+
+.contentGithub img {
+	width: 100%;
+	height: 100%;
+}
