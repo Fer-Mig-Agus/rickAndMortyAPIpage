@@ -18,6 +18,7 @@ const SearchBar = () => {
 	const handleSearch = (event) => {
 		event.preventDefault();
 		dispatch(getCharacterByName(search));
+		setSearch("");
 	};
 
 	return (

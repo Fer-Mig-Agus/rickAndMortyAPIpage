@@ -18,7 +18,7 @@ import axios from "axios";
 const desarrolloApp = "http://localhost:3001";
 const produccionApp = "https://rickandmortyapipage-production.up.railway.app";
 
-axios.defaults.baseURL = produccionApp;
+axios.defaults.baseURL = desarrolloApp;
 
 function App() {
 

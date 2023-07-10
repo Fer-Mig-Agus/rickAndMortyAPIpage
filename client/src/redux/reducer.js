@@ -73,6 +73,18 @@ export default function reducer(state = initialState, action) {
 
         case FILTER_ORDER_BY_NAME:
 
+            // array.sort(function (a, b) {
+            //     var nameA = a.name.toLowerCase();
+            //     var nameB = b.name.toLowerCase();
+            //     if (nameA < nameB) {
+            //         return -1;
+            //     }
+            //     if (nameA > nameB) {
+            //         return 1;
+            //     }
+            //     return 0;
+            // });
+
 
             switch (action.payload) {
                 case "ascendente":
@@ -89,7 +101,7 @@ export default function reducer(state = initialState, action) {
                         ...state,
                         copyCharacters: [
                             ...state.copyCharacters.sort(function (a, b) {
-                                return b.name.localeCompare(a.name)
+                                return b.name.localeCompare(a.name);
                             }),
                         ]
                     }
@@ -103,14 +115,15 @@ export default function reducer(state = initialState, action) {
 
         case FILTER_ORDER_BY_ID:
 
+        
             switch (action.payload) {
                 case "ascendente":
                     return {
                         ...state,
                         copyCharacters: [
                             ...state.copyCharacters.sort(function (a, b) {
-                                return a.id > b.id
-                            }),
+                                return a.id - b.id;
+                            })
                         ]
                     }
                 case "descendente":
@@ -118,8 +131,8 @@ export default function reducer(state = initialState, action) {
                         ...state,
                         copyCharacters: [
                             ...state.copyCharacters.sort(function (a, b) {
-                                return b.id > a.id
-                            }),
+                                return b.id - a.id;
+                            })
                         ]
                     }
                 default:

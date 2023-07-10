@@ -94,7 +94,7 @@ const AllFilters = () => {
 			<div className={styles.contentFilterBox}>
 				<h3 className={styles.filterTitle}>Order by Name</h3>
 				<select name="" id="" onChange={handleOrderName}>
-					<option value="default">Default</option>
+					<option value="default">All</option>
 					<option value="ascendente">upward</option>
 					<option value="descendete">falling</option>
 				</select>
@@ -103,7 +103,7 @@ const AllFilters = () => {
 			<div className={styles.contentFilterBox}>
 				<h3 className={styles.filterTitle}>Order by Id</h3>
 				<select name="" id="" onChange={handleOrderId}>
-					<option value="default">Default</option>
+					<option value="default">All</option>
 					<option value="ascendente">upward</option>
 					<option value="descendete">falling</option>
 				</select>
@@ -112,7 +112,7 @@ const AllFilters = () => {
 			<div className={styles.contentFilterBox}>
 				<h3 className={styles.filterTitle}>Filter by Live</h3>
 				<select name="" id="" onChange={handleFilterByLive}>
-					<option value="default">Default</option>
+					<option value="default">All</option>
 					<option value="alive">Alive</option>
 					<option value="dead">Dead</option>
 					<option value="unknown">Unknown</option>
@@ -122,7 +122,7 @@ const AllFilters = () => {
 			<div className={styles.contentFilterBox}>
 				<h3 className={styles.filterTitle}>Filter by Gender</h3>
 				<select name="" id="" onChange={handleFilterByGender}>
-					<option value="default">Default</option>
+					<option value="default">All</option>
 					<option value="hombre">Male</option>
 					<option value="mujer">Female</option>
 					<option value="unknown">Unknown</option>
