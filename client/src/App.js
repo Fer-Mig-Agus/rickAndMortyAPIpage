@@ -16,9 +16,9 @@ import Nav from './components/Nav';
 import axios from "axios";
 
 const desarrolloApp = "http://localhost:3001";
-const produccionApp = "https://rickandmortyapipage-production.up.railway.app";
+const produccionApp = "https://backend-rick-and-morty.onrender.com";
 
-axios.defaults.baseURL = desarrolloApp;
+axios.defaults.baseURL = produccionApp;
 
 function App() {
 
