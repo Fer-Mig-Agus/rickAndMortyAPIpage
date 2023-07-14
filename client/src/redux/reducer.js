@@ -4,9 +4,10 @@ import {
     GET_ALL_CHARACTERS,
     GENERATE_COPY,
     GET_CHARACTER_BY_NAME,
-    SET_USER, GET_ALL_FAVORITES,
+    GET_ALL_FAVORITES,
+    LOG_OUT_USER,
     DETAIL_ID,
-    SET_ACCESS,
+    SAVE_USER,
     CLEAN_DETAIL_BY_ID,
     FILTER_ORDER_BY_NAME,
     FILTER_ORDER_BY_ID,
@@ -18,14 +19,33 @@ const initialState = {
     characters: [],
     copyCharacters: [],
     favorites: [],
-    detail:{},
-    access:false,
-    user: "",
+    detail: {},
+    user: {},
+}
+
+const setLocalStorageUser = (user) => {
+    try {
+        window.localStorage.setItem("user", JSON.stringify(user));
+    } catch (error) {
+        console.log(error.message);
+    }
 }
 
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
+        case SAVE_USER:
+            setLocalStorageUser(action.payload);
+            return {
+                ...state,
+                user: action.payload
+            }
+        case LOG_OUT_USER:
+            setLocalStorageUser({});
+            return {
+                ...state,
+                user: {}
+            }
         case GET_ALL_CHARACTERS:
             return {
                 ...state,
@@ -37,22 +57,11 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 copyCharacters: state.characters
             }
-        case SET_ACCESS:
-            return{
-                ...state,
-                access:action.payload
-            }
 
         case GET_CHARACTER_BY_NAME:
             return {
                 ...state,
-                copyCharacters: action.payload
-            }
-
-        case SET_USER:
-            return {
-                ...state,
-                user: action.payload
+                copyCharacters: state.characters.filter((char) => char.name.toLowerCase().includes(action.payload.toLowerCase()))
             }
 
         case GET_ALL_FAVORITES:
@@ -61,29 +70,17 @@ export default function reducer(state = initialState, action) {
                 favorites: action.payload,
             }
         case DETAIL_ID:
-            return{
+            return {
                 ...state,
-                detail: state.characters.find((char)=> char.id == action.payload)
+                detail: state.characters.find((char) => char.id == action.payload)
             }
         case CLEAN_DETAIL_BY_ID:
-            return{
+            return {
                 ...state,
-                detail:{}
+                detail: {}
             }
 
         case FILTER_ORDER_BY_NAME:
-
-            // array.sort(function (a, b) {
-            //     var nameA = a.name.toLowerCase();
-            //     var nameB = b.name.toLowerCase();
-            //     if (nameA < nameB) {
-            //         return -1;
-            //     }
-            //     if (nameA > nameB) {
-            //         return 1;
-            //     }
-            //     return 0;
-            // });
 
 
             switch (action.payload) {
@@ -101,46 +98,44 @@ export default function reducer(state = initialState, action) {
                         ...state,
                         copyCharacters: [
                             ...state.copyCharacters.sort(function (a, b) {
-                                return b.name.localeCompare(a.name);
+                                return b.name.localeCompare(a.name)
                             }),
                         ]
                     }
                 default:
                     return {
                         ...state,
-                        copyCharacters: state.characters
+                        copyCharacters: state.copyCharacters
                     }
+
             }
+
 
 
         case FILTER_ORDER_BY_ID:
 
-        
             switch (action.payload) {
                 case "ascendente":
                     return {
                         ...state,
                         copyCharacters: [
-                            ...state.copyCharacters.sort(function (a, b) {
-                                return a.id - b.id;
-                            })
+                            ...state.copyCharacters.sort((a, b) => a.id - b.id)
                         ]
                     }
                 case "descendente":
                     return {
                         ...state,
                         copyCharacters: [
-                            ...state.copyCharacters.sort(function (a, b) {
-                                return b.id - a.id;
-                            })
+                            ...state.copyCharacters.sort((a, b) => b.id - a.id)
                         ]
                     }
                 default:
                     return {
                         ...state,
-                        copyCharacters: state.characters
+                        copyCharacters: state.copyCharacters
                     }
             }
+
 
         case FILTER_BY_LIVE:
 
@@ -148,22 +143,22 @@ export default function reducer(state = initialState, action) {
                 case "alive":
                     return {
                         ...state,
-                        copyCharacters: 
-                            state.copyCharacters.filter((char) => char.status.toLowerCase() === "alive"),
-                        
+                        copyCharacters:
+                            state.characters.filter((char) => char.status.toLowerCase() === "alive"),
+
                     }
                 case "dead":
                     return {
                         ...state,
                         copyCharacters:
-                            state.copyCharacters.filter((char) => char.status.toLowerCase() === "dead"),
+                            state.characters.filter((char) => char.status.toLowerCase() === "dead"),
 
                     }
                 case "unknown":
                     return {
                         ...state,
                         copyCharacters:
-                            state.copyCharacters.filter((char) => char.status.toLowerCase() === "unknown"),
+                            state.characters.filter((char) => char.status.toLowerCase() === "unknown"),
 
                     }
                 default:
@@ -179,21 +174,21 @@ export default function reducer(state = initialState, action) {
                     return {
                         ...state,
                         copyCharacters:
-                            state.copyCharacters.filter((char) => char.gender.toLowerCase() === "male"),
+                            state.characters.filter((char) => char.gender.toLowerCase() === "male"),
 
                     }
                 case "mujer":
                     return {
                         ...state,
                         copyCharacters:
-                            state.copyCharacters.filter((char) => char.gender.toLowerCase() === "female"),
+                            state.characters.filter((char) => char.gender.toLowerCase() === "female"),
 
                     }
                 case "unknown":
                     return {
                         ...state,
                         copyCharacters:
-                            state.copyCharacters.filter((char) => char.gender.toLowerCase() === "unknown"),
+                            state.characters.filter((char) => char.gender.toLowerCase() === "unknown"),
 
                     }
                 default:
@@ -203,7 +198,7 @@ export default function reducer(state = initialState, action) {
                     }
             }
 
-         
+
 
 
         default: return { ...state }

@@ -8,11 +8,11 @@ import logoGithub from '../assets/img/gitHubLogo.webp';
 const AboutPage = () => {
 	return (
 		<div className={styles.content}>
-			<h1 className={styles.titleMain}>Who am I?</h1>
+			<h1 className={styles.titleMain}>Quien soy?</h1>
 			<div className={styles.contentAll}>
 				<div className={styles.contentLogo}>
 					<a
-						href="https://portfolio-miguel-fernandez.netlify.app/"
+						href="https://portfolio-miguel-fernandez-v2.vercel.app/"
 						target="_blank"
 					>
 						<img src={logoMF} alt="logo" title="Click here" />
@@ -21,9 +21,9 @@ const AboutPage = () => {
 				<div className={styles.contentText}>
 					<div className={styles.contentDescription}>
 						<p className={styles.description}>
-							I am a person, who likes to prepare a good coffee, sit down to
-							learn and program, you can check my projects on Github and more
-							details about me on Linkedin.
+							Soy una persona, que le gusta prepararse un buen café, sentarse a
+							aprender y programar, puedes consultar mis proyectos en Github y
+							más detalles sobre mí en Linkedin.
 						</p>
 					</div>
 

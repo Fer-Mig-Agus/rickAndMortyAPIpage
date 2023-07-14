@@ -4,53 +4,60 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
-import RecurringError from "./RecurringError";
 import { validate, validateFields } from '../utils/Verification';
-import styles from "../assets/styles/components/Register.module.css";
+import styles from '../assets/styles/components/Register.module.css';
+
+//importacion para toastify and sweetalert
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import swal from 'sweetalert';
 
 const Register = () => {
-
-	const handleMessegeViews = (type, error) => {
-		setAlerta({ type: type, error: error });
-		setTimeout(() => {
-			setAlerta({ type: '', error: '' });
-		}, 2000);
-		return;
+	//Toastify module for success message
+	const displaySuccessMessage = (mensaje) => {
+		toast.success(mensaje, {
+			position: 'top-right',
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: 'light',
+		});
 	};
 
-	const [alerta, setAlerta] = useState({
-		type: '',
-		error: '',
-	});
-
+	// Toastify module for error messages
+	const displayFailedMessage = (mensaje) => {
+		toast.error(mensaje, {
+			position: 'top-right',
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: 'light',
+		});
+	};
 
 	const navigate = useNavigate();
 
-
 	const [form, setForm] = useState({
+		first_name: '',
+		last_name: '',
+		date_birth: '',
 		email: '',
 		password: '',
 	});
 
 	const [errors, setErrors] = useState({
+		first_name: '',
+		last_name: '',
+		date_birth: '',
 		email: '',
 		password: '',
 	});
-
-	const registrarUser = async (form) => {
-		console.log(form);
-		await axios
-			.post(`/user?email=${form.email}&password=${form.password}`)
-			.then((response) => {
-				handleMessegeViews(false, 'Successfully registered');
-				setForm({ email: '', password: '' });
-				
-			})
-			.catch((error) => {
-				handleMessegeViews(true, 'Registration failed');
-				console.log(error);
-			});
-	};
 
 	const handleChangeInput = (event) => {
 		const property = event.target.name;
@@ -60,32 +67,64 @@ const Register = () => {
 		setErrors(validate({ ...form, [property]: value }, errors));
 	};
 
+	const registrarUser = async (form) => {
+		try {
+			const { data } = await axios.post(`/user/register`, form);
+
+			displaySuccessMessage(data.message);
+			setForm({ email: '', password: '' });
+		} catch (error) {
+			displayFailedMessage(error.response.data.error);
+		}
+	};
+
 	const handleSubmitForm = (event) => {
 		event.preventDefault();
 		if (!validateFields(form)) {
-			handleMessegeViews(true, 'Complete the fields correctly');
-			
+			displayFailedMessage('Todos los campos son obligatorios');
 			return;
 		}
 		registrarUser(form);
 	};
 
-	const handleReturn=(event)=>{
+	const handleReturn = (event) => {
 		event.preventDefault();
-		navigate("/");
-	}
+		navigate('/');
+	};
 
 	return (
-		<div className={styles.content}>
-			{alerta.error && (
-				<RecurringError mensaje={alerta.error} tipo={alerta.type} />
-			)}
-			<h1 className={styles.titleMain}>REGISTRATE</h1>
-
-			<div className={styles.contentForm}>
-				<form action="" onSubmit={handleSubmitForm}>
+		<div className={styles.container}>
+			<main className={styles.content}>
+				<form action="" onSubmit={handleSubmitForm} className={styles.form}>
 					<div className={styles.ContentFields}>
-						<label htmlFor="email">Email:</label>
+						<input
+							placeholder="Nombre..."
+							type="text"
+							name="first_name"
+							value={form.first_name}
+							onChange={handleChangeInput}
+						/>
+						<span>{errors.first_name}</span>
+					</div>
+					<div className={styles.ContentFields}>
+						<input
+							placeholder="Apellido..."
+							type="text"
+							name="last_name"
+							value={form.last_name}
+							onChange={handleChangeInput}
+						/>
+						<span>{errors.last_name}</span>
+					</div>
+					<div className={styles.ContentFields}>
+						<input
+							type="date"
+							name="date_birth"
+							value={form.date_birth}
+							onChange={handleChangeInput}
+						/>
+					</div>
+					<div className={styles.ContentFields}>
 						<input
 							placeholder="Email..."
 							type="email"
@@ -96,9 +135,8 @@ const Register = () => {
 						<span>{errors.email}</span>
 					</div>
 					<div className={styles.ContentFields}>
-						<label htmlFor="password">Password:</label>
 						<input
-							placeholder="Password..."
+							placeholder="Contraseña..."
 							className={styles.inputPass}
 							type="text"
 							name="password"
@@ -108,13 +146,14 @@ const Register = () => {
 						<span>{errors.password}</span>
 					</div>
 					<div className={styles.contentButtonAll}>
-						<button className={styles.buttonCheckIn}>Check in</button>
-						<button className={styles.buttonReturn} onClick={handleReturn}>
-							Return
+						<button className={styles.button}>Registrar</button>
+						<button className={styles.button} onClick={handleReturn}>
+							Cancelar
 						</button>
 					</div>
 				</form>
-			</div>
+			</main>
+			<ToastContainer />
 		</div>
 	);
 };

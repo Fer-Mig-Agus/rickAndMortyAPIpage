@@ -21,16 +21,23 @@ const DetailPage = () => {
 		dispatch(detailById(id));
 	}, [character]);
 
-	const handleClickReturn = (event) => {
-		event.preventDefault();
-		dispatch(cleanDetailById());
-		navigate('/home');
-	};
-
 	return (
 		<div className={styles.content}>
 			<div className={styles.contentTitle}>
-				<h1 className={styles.titulo}>WELCOME TO THE DETAILS</h1>
+				<div
+					className={styles.contentIconReturn}
+					onClick={() => {
+						navigate('/');
+					}}
+				>
+					<img
+						src="https://icongr.am/clarity/undo.svg?size=147&color=ffffff"
+						alt=""
+						title="Volver atras"
+					/>
+				</div>
+
+				<h3 className={styles.title}>Detalles del personaje</h3>
 			</div>
 
 			{character.name ? (
@@ -44,7 +51,7 @@ const DetailPage = () => {
 						/>
 					</div>
 					<div className={styles.contentText}>
-						<button onClick={handleClickReturn} className={styles.buttonExit}>X</button>
+						
 						<h2 className={styles.textDetail}>
 							Name: <span>{character.name}</span>
 						</h2>
@@ -58,12 +65,14 @@ const DetailPage = () => {
 							Gender: <span>{character.gender}</span>
 						</h2>
 						<h2 className={styles.textDetail}>
-							Origin: <span>{character.origin?.name}</span>
+							Origin: <span>{character.origin}</span>
 						</h2>
 					</div>
 				</div>
 			) : (
-				<h3 className={styles.titulo}>Loading...</h3>
+				<div className={styles.characterNotFound}>
+					<span className="loader"></span>
+				</div>
 			)}
 		</div>
 	);

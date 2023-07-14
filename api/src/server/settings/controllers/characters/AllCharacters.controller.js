@@ -8,13 +8,13 @@ const { URL_BASE } = process.env;
 const AllCharacters = async (req, res) => {
     try {
 
-        let url =URL_BASE;
-        let allCharacters=[]
+        let url = URL_BASE;
+        let allCharacters = []
 
-        while(url){
-            let response=await axios.get(url);
-            allCharacters=allCharacters.concat(
-                response.data.results.map((char)=>{
+        while (url) {
+            let response = await axios.get(url);
+            allCharacters = allCharacters.concat(
+                response.data.results.map((char) => {
                     return {
                         id: char.id,
                         name: char.name,
@@ -27,8 +27,8 @@ const AllCharacters = async (req, res) => {
                 })
             );
 
-            url=response.data.info.next;
-            if(allCharacters.length >= 50 || !url){
+            url = response.data.info.next;
+            if (allCharacters.length >= 50 || !url) {
                 break;
             }
         }

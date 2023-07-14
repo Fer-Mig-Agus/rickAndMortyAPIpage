@@ -9,11 +9,7 @@ import {
 	generateCopy,
 } from '../redux/actions';
 const AllFilters = () => {
-
-
 	const dispatch = useDispatch();
-	
-
 
 	const handleOrderName = (event) => {
 		let order = '';
@@ -81,53 +77,69 @@ const AllFilters = () => {
 		dispatch(filterByGender(gender));
 	};
 
-	const restorePage=(event)=>{
+	const restorePage = (event) => {
 		event.preventDefault();
 		dispatch(generateCopy());
-	}
+	};
 
 	return (
 		<div className={styles.content}>
+			<div className={styles.contentFilterBox}>
+				<select
+					name=""
+					id=""
+					onChange={handleOrderName}
+					className={styles.selectOption}
+				>
+					<option value="default">Orden por Nombre</option>
+					<option value="ascendente">Ascendente</option>
+					<option value="descendente">Descendente</option>
+				</select>
+			</div>
+
+			<div className={styles.contentFilterBox}>
+				<select
+					name=""
+					id=""
+					onChange={handleOrderId}
+					className={styles.selectOption}
+				>
+					<option value="default">Orden por ID</option>
+					<option value="ascendente">Ascendente</option>
+					<option value="descendente">Descendente</option>
+				</select>
+			</div>
+
+			<div className={styles.contentFilterBox}>
+				<select
+					name=""
+					id=""
+					onChange={handleFilterByLive}
+					className={styles.selectOption}
+				>
+					<option value="default">Estado</option>
+					<option value="alive">Vivo</option>
+					<option value="dead">Muerto</option>
+					<option value="unknown">Desconocido</option>
+				</select>
+			</div>
+
+			<div className={styles.contentFilterBox}>
+				<select
+					name=""
+					id=""
+					onChange={handleFilterByGender}
+					className={styles.selectOption}
+				>
+					<option value="default">Género</option>
+					<option value="hombre">Masculino</option>
+					<option value="mujer">Femenino</option>
+					<option value="unknown">Desconocido</option>
+				</select>
+			</div>
 			<button className={styles.button} onClick={restorePage}>
-				Restore
+				Restaurar
 			</button>
-			<div className={styles.contentFilterBox}>
-				<h3 className={styles.filterTitle}>Order by Name</h3>
-				<select name="" id="" onChange={handleOrderName}>
-					<option value="default">All</option>
-					<option value="ascendente">upward</option>
-					<option value="descendete">falling</option>
-				</select>
-			</div>
-
-			<div className={styles.contentFilterBox}>
-				<h3 className={styles.filterTitle}>Order by Id</h3>
-				<select name="" id="" onChange={handleOrderId}>
-					<option value="default">All</option>
-					<option value="ascendente">upward</option>
-					<option value="descendete">falling</option>
-				</select>
-			</div>
-
-			<div className={styles.contentFilterBox}>
-				<h3 className={styles.filterTitle}>Filter by Live</h3>
-				<select name="" id="" onChange={handleFilterByLive}>
-					<option value="default">All</option>
-					<option value="alive">Alive</option>
-					<option value="dead">Dead</option>
-					<option value="unknown">Unknown</option>
-				</select>
-			</div>
-
-			<div className={styles.contentFilterBox}>
-				<h3 className={styles.filterTitle}>Filter by Gender</h3>
-				<select name="" id="" onChange={handleFilterByGender}>
-					<option value="default">All</option>
-					<option value="hombre">Male</option>
-					<option value="mujer">Female</option>
-					<option value="unknown">Unknown</option>
-				</select>
-			</div>
 		</div>
 	);
 };

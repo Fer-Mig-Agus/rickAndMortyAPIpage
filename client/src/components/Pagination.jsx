@@ -12,9 +12,9 @@ const Pagination = () => {
 
 	//Estados para controlar la paginacion
 	const [currentPage, setCurrentPage] = useState(1);
-	const [itemsPerPage, setItemsPerPage] = useState(6);
-	const [pageNumberLimit, setPageNumberLimit] = useState(6);
-	const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(7);
+	const [itemsPerPage, setItemsPerPage] = useState(8);
+	const [pageNumberLimit, setPageNumberLimit] = useState(8);
+	const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(6);
 	const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
 	//funcion para controlar la paginacion,
@@ -29,7 +29,7 @@ const Pagination = () => {
 	useEffect(() => {
 		setMinPageNumberLimit(0);
 		setCurrentPage(1);
-		setItemsPerPage(6);
+		setItemsPerPage(8);
 	}, [allCharacters]);
 
 	//Este bucle for se encarga de guardar la cantidad de paginas que hay.

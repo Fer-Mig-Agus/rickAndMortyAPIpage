@@ -1,65 +1,107 @@
-.content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.container {
     margin-top: 20px;
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
-    box-shadow: 3px 3px 5px black;
-    border-radius: 20px;
-    background: rgba(0,0,0,0.7);
+	width: 200px;
+	height: 300px;
 }
 
-.contentImage{
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    margin-top: -33%;
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	box-shadow: 3px 3px 5px black;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.7);
 }
 
-.image{
-    width: 100%;
-    height: 100%;
+.contentImage {
+	width: 100%;
+	height: 220px;
+	overflow: hidden;
+	position: relative;
+    margin-top: -19%;
 }
 
-.favorite{
-    position: relative;
+.image {
+	width: 100%;
+	height: 100%;
+}
+
+.favorite {
+	position: relative;
+	margin-left: 70%;
+	background: none;
+	font-size: 30px;
+	border: none;
+	cursor: pointer;
+	z-index: 1;
+	-webkit-text-stroke: 3px rgb(0, 0, 0);
+}
+
+.favoriteActive{
+	position: relative;
+	margin-left: 70%;
+	background: none;
+	font-size: 30px;
+	border: none;
+	cursor: pointer;
+	margin-top: -4px;
+	z-index: 1;
+	-webkit-text-stroke: 3px rgb(0, 0, 0);
+
+}
+
+.question {
+	position: relative;
+	background: none;
+	width: 40px;
     margin-left: 70%;
-    background: none;
-    font-size: 35px;
-    border: none;
+    z-index: 1;
+	height: 40px;
+	overflow: hidden;
+	cursor: pointer;
+
+}
+
+.question img {
+	width: 100%;
+	height: 100%;
+}
+
+.contentText {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    
     cursor: pointer;
-    -webkit-text-stroke: 3px rgb(0, 0, 0);
+    padding: 10px;
+    
 }
 
-.contentText{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.name {
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	font-family: RobotoLightItalica,sans-serif;
+	font-weight: 700;
+    
+	
+}
+.name:hover {
+	color: red;
 }
 
-.name{
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-    font-family: RobotoLightItalica;
-    font-weight: 700;
-    margin-top: 5%;
-    cursor: pointer;
-}
-.name:hover{
-    color: red;
-}
-
-.id{
-    color: white;
-    font-size: 20px;
-     font-family: RobotoLightItalica;
-    font-weight: 700;
+.id {
+	color: white;
+	font-size: 20px;
+	font-family: RobotoLightItalica;
+	font-weight: 700;
+    
 }

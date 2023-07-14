@@ -1,5 +1,5 @@
 .content{
-    width: 90%;
+    width: 50%;
     height: 70px;
     display: flex;
     flex-direction: row;
@@ -9,17 +9,16 @@
 
 .input{
     width: 70%;
-    height: 30px;
     padding: 10px;
     border-radius: 10px 0px 0px 10px;
     font-size: 15px;
     font-family: RobotoLightItalica;
+    border: 2px solid white;
+
 }
 
 .button{
-
     width: 30%;
-    height: 50px;
     padding: 10px;
     cursor: pointer;
     border-radius: 0px 10px 10px 0px;
@@ -28,6 +27,8 @@
     color: white;
     font-family: RobotoLightItalica;
     font-weight: 600;
+    border: 2px solid white;
+
 }
 
 .button:hover{

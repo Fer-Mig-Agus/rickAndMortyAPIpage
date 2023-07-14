@@ -1,42 +1,45 @@
-.content {
+.container {
 	width: 100%;
-	height: 100vh;
-	display: grid;
-	grid-template-columns: 30% 65%;
-	margin-bottom: 2%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.content{
+    width: 100%;
+    height: auto;
+	overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .contentFilters {
 	width: 100%;
-	height: 550px;
+	height: auto;
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	gap: 30px;
-    margin-top: 5%;
-    overflow: hidden;
-    background: rgba(0,0,0,0.6);
-    border-radius: 0px 10px 10px 0px;
+	
 }
 
-
-.contentPagination{
-
-    width: 100%;
-    height: 800px;
-    
-    margin-bottom: 30px;
-    
+.contentPagination {
+	width: 100%;
+	height: auto;
 }
 
-
-.titleMain{
-    text-align: center;
-    font-size: 50px;
-    font-family: rickAndMorty; 
-    color: rgb(1, 223, 1);
-    -webkit-text-stroke: 1px rgb(0, 255, 255);
-    margin-top: 2%;
-
+.titleMain {
+	text-align: center;
+	font-size: 50px;
+	font-family: rickAndMorty;
+	color: rgb(1, 223, 1);
+	-webkit-text-stroke: 1px rgb(0, 255, 255);
+	margin-top: 2%;
 }

@@ -1,48 +1,99 @@
-.content{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url("../../../img/background.webp");
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+.contentainer {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+}
+
+.contentLeanding {
+	width: 50%;
+	height: auto;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0px;
 }
 
 
-
-.titleMain{
-    text-align: center;
-    font-size: 60px;
-    font-family: rickAndMorty; 
-    color: rgb(1, 223, 1);
-    -webkit-text-stroke: 1px rgb(0, 255, 255);
-    margin-top: 1%;
-
+.titleMain {
+	text-align: center;
+	font-size: 50px;
+	font-family: starCartoon, sans-serif;
+	color: rgb(3, 112, 3);
+	-webkit-text-stroke: 2px rgb(0, 255, 255);
+	margin-top: 2%;
 }
 
-
-.contentImage{
-    width: 60%;
-    height: 300px;
-    overflow: hidden;
-    margin-top: -8%;
+.contentImage {
+	width: 90%;
+	height: 300px;
+	overflow: hidden;
+	margin-top: -8%;
 }
 
-.image{
-    width: 100%;
-    height: 100%;
+.image {
+	width: 100%;
+	height: 100%;
 }
 
-.linkRegister{
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 1%;
-    text-shadow: 1px 1px 5px white;
-    font-weight: 600;
+.contentOptions {
+	width: 45%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	overflow: hidden;
+}
+
+.boxButton {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.disabledButton {
+	background: linear-gradient(180deg, #4141f5, #f14389);
+	height: 40px;
+	border-radius: 6px;
+	color: white;
+	font-size: 20px;
+	font-family: robotoLightItalica, sans-serif;
+	cursor: pointer;
+	border: 1px solid rgb(255, 255, 255);
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.button {
+	height: 40px;
+	background: linear-gradient(180deg, #1e1fd1, #dc0a5f);
+	border-radius: 6px;
+	color: white;
+	font-size: 20px;
+	font-family: robotoLightItalica, sans-serif;
+	cursor: pointer;
+	border: 1px solid rgb(255, 255, 255);
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.button:hover {
+	background: linear-gradient(180deg, #dc0a5f, #1e1fd1);
 }

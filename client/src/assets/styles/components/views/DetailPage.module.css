@@ -6,6 +6,32 @@
     justify-content: center;
     align-items: center;
 }
+
+.contentTitle {
+	width: 100%;
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
+.contentIconReturn {
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.contentIconReturn img {
+	width: 100%;
+	height: 100%;
+}
+.title {
+	font-size: 30px;
+	font-family: starCartoon,sans-serif;
+	color: white;
+
+}
 .titulo {
 	text-align: center;
 	font-size: 50px;
@@ -79,3 +105,12 @@
 	background:  linear-gradient(180deg, #dc0a5f, #1e1fd1 );
 }
 
+.characterNotFound {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
