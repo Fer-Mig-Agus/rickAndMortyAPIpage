@@ -27,10 +27,12 @@
 	height: 100%;
 }
 .title {
+	text-align: center;
 	font-size: 30px;
-	font-family: starCartoon,sans-serif;
-	color: white;
-
+	font-family: starCartoon, sans-serif;
+	color: rgb(5, 128, 5);
+	-webkit-text-stroke: 1px rgb(0, 255, 255);
+	
 }
 .titulo {
 	text-align: center;

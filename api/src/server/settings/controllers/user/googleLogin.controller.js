@@ -6,16 +6,21 @@ const { generarJWT } = require("../../helper/user/generarJWT");
 
 const googleLogin = async (req, res) => {
     const { given_name, family_name, picture, email } = req.body;
+    console.log("datos que llegan desde body: ", req.body);
+    let newUser;
     try {
-
+        console.log("Si el email existe entra al if");
         if (email) {
+            console.log("Entro al if");
             let user = await User.findOne({ where: { email } });
+            console.log("Usuario encontrado: ", user);
             if (!user) {
-                const password = email + processl.env.JWT_SECRET;
+                console.log("Si el usuario no existe lo crea")
+                const password = email + process.env.JWT_SECRET;
                 const salt = await bcrypt.genSalt();
                 const hashedPassword = await bcrypt.hash(password, salt);
 
-                const newUser = new User({
+                newUser = await User.create({
                     first_name: given_name,
                     last_name: family_name,
                     profile_picture: picture,
@@ -25,20 +30,33 @@ const googleLogin = async (req, res) => {
                     createGoogle: true,
                     accountConfirmed: true,
                 });
-                user = await newUser.save();
+                console.log("Usuario creado: ", newUser);
+                res.status(201).json({
+                    status: 201, message: "Usuario creado correctamente", data: {
+                        id: newUser.id,
+                        first_name: newUser.first_name,
+                        last_name: newUser.last_name,
+                        date_birth: newUser.date_birth,
+                        email: newUser.email,
+                        token: generarJWT(newUser.id),
+                        profile_picture: newUser.profile_picture,
+                    }
+                })
+            } else {
+                res.status(201).json({
+                    status: 201, message: "Usuario ya está creado", data: {
+                        id: user.id,
+                        first_name: user.first_name,
+                        last_name: user.last_name,
+                        date_birth: user.date_birth,
+                        email: user.email,
+                        token: generarJWT(user.id),
+                        profile_picture: user.profile_picture,
+                    }
+                })
             }
 
-            res.status(200).json({
-                status: 200, message: "Usuario creado correctamente", data: {
-                    id: user.id,
-                    first_name: user.first_name,
-                    last_name: user.last_name,
-                    date_birth: user.date_birth,
-                    email: user.email,
-                    token: generarJWT(user.id),
-                    profile_picture: user.profile_picture,
-                }
-            })
+
         } else {
             return res.status(400).json({ status: 400, error: "Email inválido" })
         }

@@ -16,11 +16,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import swal from 'sweetalert';
 
 //Importaciones para el boton de Google
-import {
-	GoogleOAuthProvider,
-	GoogleLogin,
-	googleLogout,
-} from '@react-oauth/google';
+
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 
 import styles from '../assets/styles/components/Login.module.css';
@@ -122,6 +119,7 @@ const Login = () => {
 		try {
 			let decoded = jwt_decode(credentialResponse.credential);
 			const { given_name, family_name, picture, email } = decoded;
+			console.log(decoded);
 
 			const { data } = await axios.post(`/user/google/login`, {
 				given_name,
@@ -131,18 +129,18 @@ const Login = () => {
 			});
 
 			const newUser = {
-				id: data.id,
-				first_name: data.first_name,
-				last_name: data.last_name,
-				date_birth: data.date_birth,
-				email: data.email,
-				token: data.token,
-				profile_picture: data.profile_picture,
+				id: data.data.id,
+				first_name: data.data.first_name,
+				last_name: data.data.last_name,
+				date_birth: data.data.date_birth,
+				email: data.data.email,
+				token: data.data.token,
+				profile_picture: data.data.profile_picture,
 			};
 
 			dispatch(saveUser(newUser));
-
 			navigate('/');
+			
 		} catch (error) {
 			console.log('Login Failed', error);
 		}
@@ -192,7 +190,7 @@ const Login = () => {
 				</form>
 				<div className={styles.contentGoogle}>
 					<div className="">
-						<GoogleOAuthProvider clientId="357966480515-hbvmh7psb1ofcmjlmnf9rtnohlmo33ga.apps.googleusercontent.com">
+						<GoogleOAuthProvider clientId="513854752494-5m29jhrqb6o94qbmpv6bhu8mcqdcceam.apps.googleusercontent.com">
 							<GoogleLogin
 								onSuccess={handleGoogleLoginSuccess}
 								onError={handleGoogleLoginError}

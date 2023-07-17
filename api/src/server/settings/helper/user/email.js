@@ -4,6 +4,7 @@ require("dotenv").config();
 const emailRegistro = async (datos) => {
     const { email, first_name, last_name, token } = datos;
     const transport = nodemailer.createTransport({
+        //Este es para configurar el nodemailer para que se conecte con gmail
         host: "smtp.gmail.com",
         port: process.env.EMAIL_PORT,
         auth: {
@@ -11,7 +12,6 @@ const emailRegistro = async (datos) => {
             pass: process.env.EMAIL_PASSWORD,
         }
     })
-
 
 
     contentHTML = `
@@ -39,7 +39,7 @@ const emailRegistro = async (datos) => {
 
 
     await transport.sendMail({
-        from: ' "Rick and Morty web - Administrador de cuentas" <cuentas@rick_and_morty_oficial.com',
+        from: ' "Rick and Morty web - Administrador de cuentas" <cuentas@rickandmorty.web.v2.gmail.com',
         to: email,
         subject: "Confirma tu cuenta",
         text: "Comprueba la cuenta de Rick and Morty web",

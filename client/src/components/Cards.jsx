@@ -4,6 +4,10 @@ import Card from './Card';
 
 import styles from '../assets/styles/components/Cards.module.css';
 const Cards = ({ allCharacters }) => {
+
+	const displayLoadingCards=()=>{
+		
+	}
 	return (
 		<div className={styles.content}>
 			{allCharacters.length ? (

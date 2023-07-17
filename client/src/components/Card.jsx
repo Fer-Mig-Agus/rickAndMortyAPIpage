@@ -104,8 +104,8 @@ const Card = ({ id, name, species, gender, image, origin, status }) => {
 	const displayResponse = (event) => {
 		event.preventDefault();
 		swal({
-			title: 'Que es esto?',
-			text: 'Una vez que inicies sesión tendrás la posibilidad de de agregar a cada personaje a tus favoritos. Inicia sesión y agrega tantos como quieras',
+			title: '¿Que es esto?',
+			text: 'Una vez que inicies sesión tendrás la posibilidad de agregar a cada personaje a tus favoritos. Inicia sesión y agrega tantos como quieras',
 			icon: 'info',
 			buttons: 'Aceptar',
 		});

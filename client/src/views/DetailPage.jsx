@@ -53,19 +53,19 @@ const DetailPage = () => {
 					<div className={styles.contentText}>
 						
 						<h2 className={styles.textDetail}>
-							Name: <span>{character.name}</span>
+							Nombre: <span>{character.name}</span>
 						</h2>
 						<h2 className={styles.textDetail}>
-							Status: <span>{character.status}</span>
+							Estado: <span>{character.status}</span>
 						</h2>
 						<h2 className={styles.textDetail}>
-							Specie: <span>{character.species}</span>{' '}
+							Especie: <span>{character.species}</span>{' '}
 						</h2>
 						<h2 className={styles.textDetail}>
-							Gender: <span>{character.gender}</span>
+							Genero: <span>{character.gender}</span>
 						</h2>
 						<h2 className={styles.textDetail}>
-							Origin: <span>{character.origin}</span>
+							Origen: <span>{character.origin}</span>
 						</h2>
 					</div>
 				</div>
