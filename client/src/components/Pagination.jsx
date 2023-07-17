@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import Cards from './Cards';
 
 import styles from '../assets/styles/components/Pagination.module.css';
+import next from '../assets/img/nextt.png';
+import preview from '../assets/img/preview.png';
 
 const Pagination = () => {
 	//Aqui traigo todos los personajes, pero uso la copia
@@ -12,9 +14,13 @@ const Pagination = () => {
 
 	//Estados para controlar la paginacion
 	const [currentPage, setCurrentPage] = useState(1);
-	const [itemsPerPage, setItemsPerPage] = useState(8);
-	const [pageNumberLimit, setPageNumberLimit] = useState(8);
-	const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(6);
+	const [itemsPerPage, setItemsPerPage] = useState(window.screen.width <= 400 ? 4 : 8);
+	const [pageNumberLimit, setPageNumberLimit] = useState(
+		window.screen.width <= 400 ? 4 : 8,
+	);
+	const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(
+		window.screen.width <= 400 ? 3 : 8,
+	);
 	const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
 	//funcion para controlar la paginacion,
@@ -29,7 +35,7 @@ const Pagination = () => {
 	useEffect(() => {
 		setMinPageNumberLimit(0);
 		setCurrentPage(1);
-		setItemsPerPage(8);
+		setItemsPerPage(window.screen.width <= 400 ? 4 : 8);
 	}, [allCharacters]);
 
 	//Este bucle for se encarga de guardar la cantidad de paginas que hay.
@@ -105,25 +111,50 @@ const Pagination = () => {
 			{/* Esto renderiza los botones de la paginacion */}
 			<ul className={styles.pageNumbers}>
 				<li>
-					<button
-						onClick={handlePrevBtn}
-						className={styles.buttonPagination}
-						disabled={currentPage === pages[0] ? true : false}
-					>
-						Previous
-					</button>
+					{window.screen.width <= 576 ? (
+						
+						<div
+							disabled ={currentPage === pages[0] ? true : false}
+							
+							className={styles.contentIconButton}
+						>
+							<img
+								src={preview}
+								onClick={handlePrevBtn}
+								disabled={currentPage === pages[0] ? true : false}
+								alt=""
+							/>
+						</div>
+					) : (
+						<button
+							onClick={handlePrevBtn}
+							className={styles.buttonPagination}
+							disabled={currentPage === pages[0] ? true : false}
+						>
+							Previous
+						</button>
+					)}
 				</li>
 				{pageDecrementBtn}
 				{renderPageNumbers}
 				{pageIncrementBtn}
 				<li>
-					<button
-						onClick={handleNextBtn}
-						className={styles.buttonPagination}
-						disabled={currentPage == pages[pages.length - 1] ? true : false}
-					>
-						Next
-					</button>
+					{window.screen.width <= 576 ? (
+						<div
+							disabled={currentPage == pages[pages.length - 1] ? true : false}
+							className={styles.contentIconButton}
+						>
+							<img src={next} onClick={handleNextBtn} alt="" />
+						</div>
+					) : (
+						<button
+							onClick={handleNextBtn}
+							className={styles.buttonPagination}
+							disabled={currentPage == pages[pages.length - 1] ? true : false}
+						>
+							Next
+						</button>
+					)}
 				</li>
 			</ul>
 			{/* Esto renderiza las tarjetas */}

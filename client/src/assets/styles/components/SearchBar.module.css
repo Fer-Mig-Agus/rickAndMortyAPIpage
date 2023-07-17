@@ -1,36 +1,65 @@
-.content{
-    width: 50%;
-    height: 70px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.content {
+	width: 50%;
+	height: 70px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
-.input{
-    width: 70%;
-    padding: 10px;
-    border-radius: 10px 0px 0px 10px;
-    font-size: 15px;
-    font-family: RobotoLightItalica;
-    border: 2px solid white;
-
+.input {
+	width: 70%;
+	padding: 10px;
+	border-radius: 10px 0px 0px 10px;
+	font-size: 15px;
+	font-family: RobotoLightItalica;
+	border: 2px solid white;
 }
 
-.button{
-    width: 30%;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 0px 10px 10px 0px;
-    font-size: 15px;
-    background:  linear-gradient(180deg, #1e1fd1, #dc0a5f);
-    color: white;
-    font-family: RobotoLightItalica;
-    font-weight: 600;
-    border: 2px solid white;
-
+.button {
+	width: 30%;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 0px 10px 10px 0px;
+	font-size: 15px;
+	background: linear-gradient(180deg, #1e1fd1, #dc0a5f);
+	color: white;
+	font-family: RobotoLightItalica;
+	font-weight: 600;
+	border: 2px solid white;
 }
 
-.button:hover{
-	background:  linear-gradient(180deg, #dc0a5f, #1e1fd1 );
+.button:hover {
+	background: linear-gradient(180deg, #dc0a5f, #1e1fd1);
+}
+
+/*RESPONSIVE PAGE*/
+
+/*RESPONSIVE PAGE*/
+
+@media (max-width: 1920px) {
+}
+
+@media (max-width: 1400px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+	.content {
+		width: 80%;
+	}
+}
+
+@media (max-width: 400px) {
+}
+
+@media (max-width: 360px) {
 }

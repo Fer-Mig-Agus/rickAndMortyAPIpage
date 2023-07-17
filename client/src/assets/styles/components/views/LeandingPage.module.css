@@ -28,7 +28,6 @@
 	gap: 0px;
 }
 
-
 .titleMain {
 	text-align: center;
 	font-size: 50px;
@@ -96,4 +95,61 @@
 }
 .button:hover {
 	background: linear-gradient(180deg, #dc0a5f, #1e1fd1);
+}
+
+/*RESPONSIVE PAGE*/
+
+/*RESPONSIVE PAGE*/
+
+@media (max-width: 1920px) {
+}
+
+@media (max-width: 1400px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+	.contentOptions {
+		width: 40%;
+	}
+}
+
+@media (max-width: 576px) {
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 30px;
+	}
+
+	.contentLeanding {
+		width: 90%;
+		height: auto;
+	}
+
+	.contentOptions {
+		width: 90%;
+	}
+}
+
+@media (max-width: 400px) {
+	.titleMain {
+		font-size: 40px;
+	}
+	.contentOptions {
+		width: 80%;
+		margin-bottom: 60px;
+	}
+}
+
+@media (max-width: 360px) {
+	.titleMain {
+		margin-top: 3%;
+	}
 }

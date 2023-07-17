@@ -1,57 +1,106 @@
-.content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 50px;
+.content {
+	width: 100%;
+	height: auto;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 50px;
 }
 
-
-.pageNumbers{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+.pageNumbers {
+	width: 90%;
+	height: auto;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	
 }
 
-.pageNumbers li{
-    padding: 10px;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 5px;
-    cursor: pointer;
+.pageNumbers li {
+	padding: 10px;
+	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	border-radius: 5px;
+	cursor: pointer;
 }
 .normal,
-.puntitos{
-    background: #a370f0;
-    color: black;
-    box-shadow: 2px 3px 5px black;
+.puntitos {
+	background: #a370f0;
+	color: black;
+	box-shadow: 2px 3px 5px black;
 }
-.active{
-    background:#5804d7;
-    color: white;
-}
-
-
-.buttonPagination{
-    background:#5804d7;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 3px 5px black;
+.active {
+	background: #5804d7;
+	color: white;
 }
 
-.buttonPagination:hover{
-    background: #a370f0;
-    color: black;
-    
-
+.buttonPagination {
+	background: #5804d7;
+	border: none;
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 2px 3px 5px black;
 }
 
-.buttonPagination:focus{
-    outline: none;
+.buttonPagination:hover {
+	background: #a370f0;
+	color: black;
+}
+
+.buttonPagination:focus {
+	outline: none;
+}
+
+/*RESPONSIVE PAGE*/
+
+/*RESPONSIVE PAGE*/
+
+@media (max-width: 1920px) {
+}
+
+@media (max-width: 1400px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+	.pageNumbers {
+		gap: 10px;
+	}
+	.contentIconButton {
+		width: 30px;
+		height: 30px;
+		overflow: hidden;
+        background: #5804d7;
+        border-radius: 5px;
+        padding: 5px;
+	}
+    .contentIconButton:hover{
+        background: #a370f0;
+    }
+	.contentIconButton img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@media (max-width: 400px) {
+}
+
+@media (max-width: 360px) {
 }

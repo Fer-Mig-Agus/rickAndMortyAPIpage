@@ -5,7 +5,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	
 }
 
 .content {
@@ -22,7 +21,7 @@
 	gap: 20px;
 }
 
-.form{
+.form {
 	width: 100%;
 	height: auto;
 	display: flex;
@@ -53,7 +52,7 @@
 }
 .ContentEmail span {
 	font-size: 15px;
-	font-family: RobotoRegular,sans-serif;
+	font-family: RobotoRegular, sans-serif;
 	color: white;
 	margin-top: 5px;
 	font-weight: 500;
@@ -62,16 +61,15 @@
 .contentPassword {
 	display: flex;
 	flex-direction: row;
-	justify-content:center;
+	justify-content: center;
 	align-items: flex-start;
 	gap: 5px;
 	width: 100%;
 	height: auto;
 	padding: 5px;
-	
 }
 
-.contentDivPassword{
+.contentDivPassword {
 	width: 70%;
 	height: auto;
 	display: flex;
@@ -87,13 +85,14 @@
 	font-family: robotoLightItalica;
 	border-radius: 5px;
 }
-.contentDivPassword span{
+.contentDivPassword span {
 	font-size: 15px;
 	color: white;
 	margin-top: 5px;
-	font-family: RobotoRegular,sans-serif;
+	font-family: RobotoRegular, sans-serif;
 	font-weight: 500;
 	text-align: center;
+	width: 70%;
 }
 
 .contentImageEye {
@@ -101,7 +100,6 @@
 	height: 30px;
 	overflow: hidden;
 	margin-top: 10px;
-
 }
 
 .imageEye {
@@ -110,11 +108,11 @@
 	cursor: pointer;
 }
 
-.link{
+.link {
 	text-decoration: none;
 	color: white;
 	font-size: 15px;
-	font-family: RobotoRegular,sans-serif;
+	font-family: RobotoRegular, sans-serif;
 	font-weight: 500;
 }
 
@@ -132,4 +130,38 @@
 }
 .buttonLogIn:hover {
 	background: linear-gradient(180deg, #dc0a5f, #1e1fd1);
+}
+
+/*RESPONSIVE PAGE*/
+
+/*RESPONSIVE PAGE*/
+
+@media (max-width: 1920px) {
+}
+
+@media (max-width: 1400px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+	.contentImageEye {
+		background: white;
+		padding: 5px;
+		border-radius: 3px;
+		margin-top: 0px;
+	}
+}
+
+@media (max-width: 400px) {
+}
+
+@media (max-width: 360px) {
 }
